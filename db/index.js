@@ -31,6 +31,7 @@ async function createUser({
 
     return user;
   } catch (error) {
+    console.log("Error creating users!");
     throw error;
   }
 }
@@ -62,6 +63,7 @@ async function createTags(tagList) {
 
     return rows;
   } catch (error) {
+    console.log("Error creating tags!");
     throw error;
   }
 }
@@ -87,6 +89,7 @@ async function updateUser(id, fields = {}) {
 
     return user;
   } catch (error) {
+    console.log("Error udpating users!");
     throw error;
   }
 }
@@ -100,6 +103,7 @@ async function getAllUsers() {
 
     return rows;
   } catch (error) {
+    console.log("Error getting all users!");
     throw error;
   }
 }
@@ -121,6 +125,7 @@ async function getUserById(userId) {
 
     return user;
   } catch (error) {
+    console.log("Error getting users by ID!");
     throw error;
   }
 }
@@ -142,6 +147,7 @@ async function createPost({
 
     return await addTagsToPost(post.id, tagList);
   } catch (error) {
+    console.log("Error creating posts!");
     throw error;
   }
 }
@@ -184,6 +190,7 @@ async function updatePost(postId, fields = {}) {
 
     return await getPostById(postId);
   } catch (error) {
+    console.log("Error updating posts!");
     throw error;
   }
 }
@@ -201,6 +208,7 @@ async function getAllPosts() {
 
     return posts;
   } catch (error) {
+    console.log("Error getting all posts!");
     throw error;
   }
 }
@@ -219,6 +227,7 @@ async function getPostsByUser(userId) {
 
     return posts;
   } catch (error) {
+    console.log("Error getting posts by user!");
     throw error;
   }
 }
@@ -231,6 +240,7 @@ async function createPostTag(postId, tagId) {
       ON CONFLICT ("postId", "tagId") DO NOTHING;
     `, [postId, tagId]);
   } catch (error) {
+    console.log("Error creating post tags!");
     throw error;
   }
 }
@@ -245,6 +255,7 @@ async function addTagsToPost(postId, tagList) {
 
     return await getPostById(postId);
   } catch (error) {
+    console.log("Error adding tags to post!");
     throw error;
   }
 }
@@ -277,6 +288,7 @@ async function getPostById(postId) {
 
     return post;
   } catch (error) {
+    console.log("Error getting posts by ID!");
     throw error;
   }
 }
@@ -295,6 +307,7 @@ async function getPostsByTagName(tagName) {
       post => getPostById(post.id)
     ));
   } catch (error) {
+    console.log("Error getting posts by tag name!");
     throw error;
   }
 } 
